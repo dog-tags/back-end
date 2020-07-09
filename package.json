@@ -1,0 +1,26 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:dog-tags/back-end.git",
+  "author": "JimmyMcBride <mcbride967@gmail.com>",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "knex-refresh": "knex migrate:rollback && knex migrate:latest && knex seed:run",
+    "db-reset": "psql -f remakeDatabase.sql",
+    "total-reset": "yarn db-reset && yarn total-reset"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^2.15.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "knex": "^0.21.1",
+    "moment": "^2.27.0",
+    "pg": "^8.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
