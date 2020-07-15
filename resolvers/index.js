@@ -89,6 +89,22 @@ const resolvers = {
     async photos({ id }) {
       return await db("dog-photos").where({ dogId: id });
     },
+    async contacts({ userId }) {
+      const owner = await db("users").where({ id: userId }).first();
+
+      const ownerContact = [
+        {
+          id: owner.id,
+          name: owner.username,
+          email: owner.email,
+          phone: owner.phone,
+        },
+      ];
+
+      const contacts = await db("contact").where({ userId });
+
+      return ownerContact.concat(contacts);
+    },
   },
 };
 

@@ -18,7 +18,8 @@ const typeDefs = `
   type User {
     id: ID!
     username: String!
-    email: String
+    email: String!
+    phone: String!
     contacts: [Contact]!
     dogs: [Dog]!
   }
@@ -31,6 +32,7 @@ const typeDefs = `
     birthday: String!
     avatar: String!
     photos: [DogPhoto]!
+    contacts: [Contact]!
   }
   type Contact {
     id: ID!
@@ -47,6 +49,7 @@ const typeDefs = `
     id: ID!
     username: String!
     email: String!
+    phone: String!
   }
   input AddDogInput {
     userId: String!
